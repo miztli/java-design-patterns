@@ -1,0 +1,8 @@
+# intellij
+
+.idea/
+java-design-patterns.iml
+
+# compiled sources
+
+target/
