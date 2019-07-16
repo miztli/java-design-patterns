@@ -1,6 +1,4 @@
-package com.examples.java.abstract_factory;
-
-import java.util.Enumeration;
+package com.examples.java.creational.object.abstract_factory;
 
 /**
  * Created by miztli on 21/02/17.
@@ -14,11 +12,11 @@ public class ClothesFactory {
     public static IClothesFactory getClothesFactory(final FactoryType type){
         switch (type){
             case BERSHKA:
-                    return new BershkaFactory();
+                    return BershkaFactory.getInstance();
             case ZARA:
-                    return new ZaraFactory();
+                    return ZaraFactory.getInstance();
             default:
-                    return new BershkaFactory();
+                    return BershkaFactory.getInstance();
 
         }
     }
