@@ -1,9 +1,5 @@
 package com.examples.java.creational.object.abstract_factory;
 
-import com.examples.java.creational.object.abstract_factory.BershkaFactory;
-import com.examples.java.creational.object.abstract_factory.ClothesFactory;
-import com.examples.java.creational.object.abstract_factory.IClothesFactory;
-import com.examples.java.creational.object.abstract_factory.ZaraFactory;
 import junit.framework.Assert;
 import org.junit.Test;
 
@@ -13,7 +9,7 @@ import org.junit.Test;
 public class AbstractFactoryPatternTest {
 
     @Test
-    public void getBershkaFactory(){
+    public void whenGettingABershkaFactory_verifyRelatedFamilyProducts(){
         System.out.println("Testing BershkaFactory");
 
         IClothesFactory bershkaFactory = ClothesFactory.getClothesFactory(ClothesFactory.FactoryType.BERSHKA);
@@ -28,7 +24,7 @@ public class AbstractFactoryPatternTest {
     }
 
     @Test
-    public void getZaraFactory(){
+    public void whenGettingAZaraFactory_verifyRelatedFamilyProducts(){
         System.out.println("Testing ZaraFactory");
 
         IClothesFactory zaraFactory = ClothesFactory.getClothesFactory(ClothesFactory.FactoryType.ZARA);
