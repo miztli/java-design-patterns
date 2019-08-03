@@ -1,4 +1,4 @@
-package com.examples.java.builder;
+package com.examples.java.creational.object.builder;
 
 /**
  * Created by miztli on 17/02/17.

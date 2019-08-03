@@ -1,10 +1,10 @@
 package com.examples.java;
 
 
-import com.examples.java.builder.Address;
-import com.examples.java.builder.Company;
-import com.examples.java.builder.Person;
-import com.examples.java.builder.PersonBuilder;
+import com.examples.java.creational.object.abstract_factory.builder.Address;
+import com.examples.java.creational.object.abstract_factory.builder.Company;
+import com.examples.java.creational.object.abstract_factory.builder.Person;
+import com.examples.java.creational.object.abstract_factory.builder.PersonBuilder;
 import org.junit.Test;
 
 /**

@@ -4,6 +4,11 @@ Provide an interface for creating families of related or dependent objects witho
 
 ---
 
+### Classification
+
+Purpose: Creational
+Scope: Object
+
 ### Use the Abstract Factory pattern when
 
 - A system should be independent of how its products are created, composed, and represented.

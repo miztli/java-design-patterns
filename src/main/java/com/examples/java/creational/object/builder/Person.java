@@ -1,4 +1,4 @@
-package com.examples.java.builder;
+package com.examples.java.creational.object.builder;
 
 import com.google.common.base.Preconditions;
 
