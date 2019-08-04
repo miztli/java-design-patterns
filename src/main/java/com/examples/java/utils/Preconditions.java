@@ -1,4 +1,4 @@
-package com.examples.java;
+package com.examples.java.utils;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ public class Preconditions
     }
 
     public static void isBlank(String string, String param) {
-        if(string != null && string.trim().length() > 0)
+        if(string == null || string.trim().length() <= 0)
             throw new IllegalArgumentException(
                     String.format("Provided value for %s must be bigger than 0", param));
     }
