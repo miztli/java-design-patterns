@@ -3,7 +3,7 @@ package com.examples.java.creational.object.abstract_factory;
 /**
  * Implements the operations to create concrete product objects.
  *
- * An application typically needs only one instance of a
+ * An application typically needs only one INSTANCE of a
  * ConcreteFactory per product family. So it's usually best
  * implemented as a Singleton
  *
@@ -12,9 +12,9 @@ package com.examples.java.creational.object.abstract_factory;
 public class ZaraFactory implements IClothesFactory {
 
     /**
-     * Factory instance (Singleton pattern)
+     * Factory INSTANCE (Singleton pattern)
      */
-    private static ZaraFactory instance;
+    private static ZaraFactory INSTANCE;
 
     /**
      * hide default constructor to avoid instantiation
@@ -24,8 +24,8 @@ public class ZaraFactory implements IClothesFactory {
     public static ZaraFactory getInstance() {
 
         // for multithreading consider refactoring this singleton
-        return instance != null
-                ? instance
+        return INSTANCE != null
+                ? INSTANCE
                 : new ZaraFactory();
     }
 

@@ -14,7 +14,7 @@ public class BershkaFactory implements IClothesFactory {
     /**
      * Factory INSTANCE (Singleton pattern)
      */
-    private static BershkaFactory INSTANCE;
+    private static BershkaFactory INSTANCE = null;
 
     /**
      * hide default constructor to avoid instantiation
