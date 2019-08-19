@@ -8,7 +8,7 @@ Purpose: Creational
 
 Scope: Object
 
-## Aplicability
+### Aplicability
 
 Use this pattern when:
 
