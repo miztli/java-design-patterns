@@ -27,4 +27,15 @@ public abstract class Vehicle {
     public void setModel(String model) {
         this.model = model;
     }
+
+    protected abstract void startEngine();
+
+    protected abstract void accelerateMaxSpeed();
+
+    protected abstract void decreaseSpeed();
+
+    @Override
+    public String toString() {
+        return String.format("vehicle details: {name:%s}{model:%s}", this.name, this.model);
+    }
 }
