@@ -1,29 +1,49 @@
 package com.examples.java.structural.object.facade;
 
-public class UserFacadeClientA implements UserFacade
+import java.util.List;
+
+public class UserFacadeClientA extends DefaultUserFacade
 {
-    private UserService userService;
+    private AttendanceService attendanceService;
 
-    private CarService carService;
+    private ProjectsAssignmentService projectsAssignmentService;
 
-    private EventsService eventsService;
-
-    public void createDefaultUser(final String name, final int age) {
-        eventsService.logEvent(String.format("Creating user with name: %s and age %d", name, age));
-
-        UserEntity userEntity = new UserEntity();
-        userEntity.setName(name);
-        userEntity.setAge(age);
-
-        userService.save(userEntity);
-        eventsService.logEvent(String.format("User created %s", userEntity.getId()));
+    public UserFacadeClientA(final UserService userService, final HumanResourcesService humanResourcesService,
+        final AttendanceService attendanceService, final ProjectsAssignmentService projectsAssignmentService)
+    {
+        super(userService, humanResourcesService);
+        this.attendanceService = attendanceService;
+        this.projectsAssignmentService = projectsAssignmentService;
     }
 
-    public void removeUser(final int userId) {
+    @Override
+    public List<UserDto> getAvailableUsers()
+    {
+        final List<UserEntity> users = getUserService().findAll();
+        final List<UserEntity> activeUsers = getHumanResourcesService().getSelectableUsers(users);
+        final List<UserEntity> inOfficeUsers = getAttendanceService().getInOfficeUsers(activeUsers);
+        final List<UserEntity> unassignedToProjectUsers = getProjectsAssignmentService().getUnassignedToProjectUsers(inOfficeUsers);
 
+        return map(unassignedToProjectUsers);
     }
 
-    public void activateUser(final int userId) {
+    public AttendanceService getAttendanceService()
+    {
+        return attendanceService;
+    }
 
+    public void setAttendanceService(final AttendanceService attendanceService)
+    {
+        this.attendanceService = attendanceService;
+    }
+
+    public ProjectsAssignmentService getProjectsAssignmentService()
+    {
+        return projectsAssignmentService;
+    }
+
+    public void setProjectsAssignmentService(final ProjectsAssignmentService projectsAssignmentService)
+    {
+        this.projectsAssignmentService = projectsAssignmentService;
     }
 }
