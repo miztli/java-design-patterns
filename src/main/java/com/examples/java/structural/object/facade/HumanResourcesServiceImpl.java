@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- *
+ * Concrete implementation of {@link HumanResourcesService}
  */
 public class HumanResourcesServiceImpl implements HumanResourcesService
 {

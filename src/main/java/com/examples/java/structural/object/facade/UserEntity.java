@@ -1,5 +1,10 @@
 package com.examples.java.structural.object.facade;
 
+/**
+ * Internal-facing data object (aka. entity object).
+ * Designed to be used only among the internal
+ * services of the application.
+ */
 public class UserEntity
 {
     private long id;

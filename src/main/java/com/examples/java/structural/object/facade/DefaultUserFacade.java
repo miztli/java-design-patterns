@@ -3,6 +3,13 @@ package com.examples.java.structural.object.facade;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * In many cases it useful to provide a Default implementation OOTB.
+ * This way, wee can expose a default behaviour regardless of
+ * the consuming client, keeping still the flexibility to
+ * implement a more concrete implementation by extending this
+ * class.
+ */
 public class DefaultUserFacade implements UserFacade
 {
     private UserService userService;
@@ -15,6 +22,9 @@ public class DefaultUserFacade implements UserFacade
         this.humanResourcesService = humanResourcesService;
     }
 
+    /**
+     * @return The list of active users.
+     */
     @Override
     public List<UserDto> getAvailableUsers()
     {
@@ -24,6 +34,10 @@ public class DefaultUserFacade implements UserFacade
         return map(activeUsers);
     }
 
+    /**
+     * @param userEntities The provided list of entities.
+     * @return The {@link UserDto} list got from the provided entities.
+     */
     public List<UserDto> map(final List<UserEntity> userEntities)
     {
         return userEntities

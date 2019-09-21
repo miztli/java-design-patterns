@@ -2,6 +2,9 @@ package com.examples.java.structural.object.facade;
 
 import java.util.List;
 
+/**
+ * Concrete implementation for a specific client.
+ */
 public class UserFacadeClientA extends DefaultUserFacade
 {
     private AttendanceService attendanceService;
@@ -16,11 +19,17 @@ public class UserFacadeClientA extends DefaultUserFacade
         this.projectsAssignmentService = projectsAssignmentService;
     }
 
+    /**
+     * Notice how concrete implementation differ in
+     * the number of service calls with {@link UserFacadeClientB}.
+     * @return The list of available users.
+     */
     @Override
     public List<UserDto> getAvailableUsers()
     {
         final List<UserEntity> users = getUserService().findAll();
         final List<UserEntity> activeUsers = getHumanResourcesService().getSelectableUsers(users);
+        // Client A is a respectable client which does not bother his users after office hours.
         final List<UserEntity> inOfficeUsers = getAttendanceService().getInOfficeUsers(activeUsers);
         final List<UserEntity> unassignedToProjectUsers = getProjectsAssignmentService().getUnassignedToProjectUsers(inOfficeUsers);
 

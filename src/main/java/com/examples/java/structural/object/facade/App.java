@@ -4,6 +4,7 @@ import java.util.List;
 
 public class App
 {
+    //
     final static boolean ACTIVE = true;
 
     final static boolean INACTIVE = false;
@@ -18,6 +19,7 @@ public class App
 
     public static void main(String[] args)
     {
+        // Services
         UserService userService = new UserServiceImpl(initializeDefaultUserEntitiesList());
         AttendanceService attendanceService = new AttendanceServiceImpl();
         HumanResourcesService humanResourcesService = new HumanResourcesServiceImpl();
@@ -32,8 +34,13 @@ public class App
 
         System.out.println("Users got from Client's A Facade");
         printUsers(usersForClientA);
+
         System.out.println("Users got from Client's B Facade");
         printUsers(usersForClientB);
+
+        // Finally we notice how facades help us to expose a public interface which
+        // can be adapted accordingly to the client requirements, without the need to
+        // change our services logic.
     }
 
     public static List<UserEntity> initializeDefaultUserEntitiesList()
@@ -49,7 +56,8 @@ public class App
             new UserEntity(8, "guillermo", "ochoa", "", 32, "Eighth road #58", "3354455667", ACTIVE, IN_OFFICE, WITHOUT_PROJECT));
     }
 
-    public static void printUsers(final List<UserDto> users) {
+    public static void printUsers(final List<UserDto> users)
+    {
         users.stream().map(userDto -> userDto.toString()).forEach(System.out::println);
     }
 }

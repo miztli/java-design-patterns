@@ -7,5 +7,9 @@ import java.util.List;
  */
 public interface HumanResourcesService
 {
+    /**
+     * @param users A superset of users.
+     * @return The list of active users from the provided superset.
+     */
     List<UserEntity> getSelectableUsers(List<UserEntity> users);
 }

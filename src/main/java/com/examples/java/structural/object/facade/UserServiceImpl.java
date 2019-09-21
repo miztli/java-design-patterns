@@ -5,6 +5,9 @@ import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
+/**
+ * Concrete implementation of {@link UserService}
+ */
 public class UserServiceImpl implements UserService
 
 {

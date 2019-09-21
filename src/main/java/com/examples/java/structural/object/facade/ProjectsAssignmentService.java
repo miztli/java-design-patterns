@@ -7,5 +7,10 @@ import java.util.List;
  */
 public interface ProjectsAssignmentService
 {
+    /**
+     * @param users A superset of users.
+     * @return The list of users that currently are assigned to a project
+     * from the provided superset.
+     */
     List<UserEntity> getUnassignedToProjectUsers(List<UserEntity> users);
 }

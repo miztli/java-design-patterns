@@ -4,6 +4,9 @@ import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
+/**
+ * Concrete implementation for a specific client.
+ */
 public class UserFacadeClientB extends DefaultUserFacade
 {
     private AttendanceService attendanceService;
@@ -15,9 +18,15 @@ public class UserFacadeClientB extends DefaultUserFacade
         this.attendanceService = attendanceService;
     }
 
+    /**
+     * Notice how concrete implementation differ in
+     * the number of service calls with {@link UserFacadeClientA}.
+     * @return The list of available users.
+     */
     @Override
     public List<UserDto> getAvailableUsers()
     {
+        // Client B cares a sh*t if users are not in office hours.
         final List<UserEntity> users = getUserService().findAllFiltered(greaterThan(40));
         final List<UserEntity> activeUsers = getHumanResourcesService().getSelectableUsers(users);
         final List<UserEntity> inOfficeUsers = getAttendanceService().getInOfficeUsers(activeUsers);

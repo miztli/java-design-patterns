@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
  */
 public class AttendanceServiceImpl implements AttendanceService
 {
+
     @Override
     public List<UserEntity> getInOfficeUsers(final List<UserEntity> users)
     {

@@ -1,5 +1,9 @@
 package com.examples.java.structural.object.facade;
 
+/**
+ * External-facing data transfer object (aka. DTO).
+ * Designed to transfer data in-out and out-into the application.
+ */
 public class UserDto
 {
     private String completeName;
