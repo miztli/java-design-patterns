@@ -9,7 +9,6 @@ public class App {
   static final String ANOTHER_ADAPTOR = "anotherFuckingAdaptor";
 
   public static void main(String[] args) {
-    TaxesCalculationStrategy taxesCalculationStrategy;
     final ProductsStore store = new ProductsStore();
       store.setProducts(initializeDefaultProductList());
 
