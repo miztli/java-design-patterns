@@ -1,5 +1,8 @@
 package com.examples.java.behavioural.object.strategy;
 
+/**
+ * Concrete implementation for London's taxes calculation.
+ */
 public class LondonTaxesCalculationStrategy implements TaxesCalculationStrategy {
 
     private static final double TAX = 1.28;

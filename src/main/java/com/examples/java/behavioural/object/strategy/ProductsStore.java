@@ -2,6 +2,12 @@ package com.examples.java.behavioural.object.strategy;
 
 import java.util.List;
 
+/**
+ * The product store makes use of the {@link TaxesCalculationStrategy}
+ * interface, keeping it abstracted from contrete implementations,
+ * allowing this way for a client to decide on which
+ * concrete Strategy implementation to use at runtime.
+ */
 public class ProductsStore {
 
   private TaxesCalculationStrategy taxesCalculationStrategy;
