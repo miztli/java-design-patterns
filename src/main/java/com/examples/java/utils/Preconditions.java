@@ -17,7 +17,7 @@ public class Preconditions
     }
 
     public static void isNotNull(Object object, String param) {
-        if(object != null)
+        if(object == null)
             throw new IllegalArgumentException(
                     String.format("Provided value for %s must not be null", param));
     }
