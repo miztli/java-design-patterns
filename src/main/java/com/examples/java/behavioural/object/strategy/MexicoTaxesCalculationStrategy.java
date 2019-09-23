@@ -5,10 +5,27 @@ package com.examples.java.behavioural.object.strategy;
  */
 public class MexicoTaxesCalculationStrategy implements TaxesCalculationStrategy {
 
-    private static final double TAX = 1.16;
+    private double tax;
+
+    public MexicoTaxesCalculationStrategy(final double tax)
+    {
+        this.tax = tax;
+    }
+
     @Override
     public void calculateTaxes(final Product product) {
-        product.setTax(TAX);
-        product.setTotal(product.getPrice() * TAX);
+        final double multiplyBy = 1 + getTax();
+        product.setTax(getTax());
+        product.setTotal(product.getPrice() * multiplyBy);
+    }
+
+    public double getTax()
+    {
+        return tax;
+    }
+
+    public void setTax(final double tax)
+    {
+        this.tax = tax;
     }
 }
