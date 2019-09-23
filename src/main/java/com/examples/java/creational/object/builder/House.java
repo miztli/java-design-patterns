@@ -122,10 +122,6 @@ public class House
         private Garage garage;
         private LivingRoom livingroom;
 
-        public HouseBuilder()
-        {
-        }
-
         @Override
         public House build()
         {
