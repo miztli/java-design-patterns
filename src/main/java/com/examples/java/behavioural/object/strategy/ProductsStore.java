@@ -1,5 +1,7 @@
 package com.examples.java.behavioural.object.strategy;
 
+import com.examples.java.utils.Preconditions;
+
 import java.util.List;
 
 /**
@@ -15,7 +17,10 @@ public class ProductsStore {
   private List<Product> products;
 
   public Product buyProductByName(final String name) {
-    Product foundProduct = products
+    Preconditions.isBlank(name, "name");
+    Preconditions.isNotEmpty(getProducts(), "products");
+
+    Product foundProduct = getProducts()
                     .stream()
                     .filter(product -> product.getName().equals(name))
                     .findFirst().orElseThrow(() ->
