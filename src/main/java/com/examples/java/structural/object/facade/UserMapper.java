@@ -1,5 +1,7 @@
 package com.examples.java.structural.object.facade;
 
+import com.examples.java.utils.Preconditions;
+
 import java.util.Optional;
 
 /**
@@ -13,9 +15,10 @@ public class UserMapper
 {
     public static UserDto from(final UserEntity userEntity)
     {
+        Preconditions.isNotNull(userEntity, "user entity must not be null");
         final UserDto userDto = new UserDto();
         userDto.setCompleteName(
-            String.format("%s%s%s",
+            String.format("%s %s %s",
                 Optional.ofNullable(userEntity.getName()).orElse(""),
                 Optional.ofNullable(userEntity.getSurname1()).orElse(""),
                 Optional.ofNullable(userEntity.getSurname2()).orElse("")));

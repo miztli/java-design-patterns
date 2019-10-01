@@ -1,9 +1,10 @@
 package com.examples.java.structural.object.facade;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+
+import static com.examples.java.utils.Preconditions.isNotNull;
 
 /**
  * Concrete implementation of {@link UserService}
@@ -11,7 +12,7 @@ import java.util.stream.Collectors;
 public class UserServiceImpl implements UserService
 
 {
-    private List<UserEntity> users = Collections.emptyList();
+    private List<UserEntity> users;
 
     public UserServiceImpl(final List<UserEntity> users)
     {
@@ -21,25 +22,25 @@ public class UserServiceImpl implements UserService
     @Override
     public void save(final UserEntity user)
     {
-        users.add(user);
+        getUsers().add(user);
     }
 
     @Override
     public void saveAll(final List<UserEntity> users)
     {
-        users.addAll(users);
+        getUsers().addAll(users);
     }
 
     @Override
     public List<UserEntity> findAll()
     {
-        return users;
+        return getUsers();
     }
 
     @Override
     public List<UserEntity> findAllFiltered(final Predicate<UserEntity> filter)
     {
-        return users
+        return getUsers()
             .stream()
             .filter(filter)
             .collect(Collectors.toList());

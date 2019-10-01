@@ -11,6 +11,12 @@ public class UserFacadeClientB extends DefaultUserFacade
 {
     private AttendanceService attendanceService;
 
+
+    public UserFacadeClientB()
+    {
+        super();
+    }
+
     public UserFacadeClientB(final UserService userService, final HumanResourcesService humanResourcesService,
         final AttendanceService attendanceService)
     {
