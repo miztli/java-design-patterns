@@ -8,27 +8,21 @@ import java.util.List;
 
 import static com.examples.java.structural.object.facade.App.initializeDefaultUserEntitiesList;
 import static org.junit.Assert.assertTrue;
+import static org.mockito.ArgumentMatchers.anyList;
 import static org.mockito.Mockito.*;
 
-public class UserFacadeClientATest
+public class DefaultUserFacadeTest
 {
-
-  private final UserFacadeClientA facadeA = new UserFacadeClientA();
+  private final DefaultUserFacade facadeA = new DefaultUserFacade();
 
   private final UserService userService = mock(UserServiceImpl.class);
 
   private final HumanResourcesService humanResourcesService = spy(HumanResourcesServiceImpl.class);
 
-  private final AttendanceService attendanceService = spy(AttendanceServiceImpl.class);
-
-  private final ProjectsAssignmentService projectsAssignmentService = spy(ProjectsAssignmentServiceImpl.class);
-
   @Before
   public void setup() {
     facadeA.setUserService(userService);
     facadeA.setHumanResourcesService(humanResourcesService);
-    facadeA.setAttendanceService(attendanceService);
-    facadeA.setProjectsAssignmentService(projectsAssignmentService);
   }
 
   @Test
@@ -39,10 +33,8 @@ public class UserFacadeClientATest
     List<UserDto> users = facadeA.getAvailableUsers();
 
     verify(userService).findAll();
-    verify(projectsAssignmentService).getUnassignedToProjectUsers(anyList());
-    verify(attendanceService).getInOfficeUsers(anyList());
     verify(humanResourcesService).getSelectableUsers(anyList());
 
-    assertTrue(users.size() == 3);
+    assertTrue(users.size() == 6);
   }
 }
