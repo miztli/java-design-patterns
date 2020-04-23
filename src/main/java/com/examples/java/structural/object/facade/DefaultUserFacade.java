@@ -16,6 +16,9 @@ public class DefaultUserFacade implements UserFacade
 
     private HumanResourcesService humanResourcesService;
 
+    public DefaultUserFacade() {
+    }
+
     public DefaultUserFacade(final UserService userService, final HumanResourcesService humanResourcesService)
     {
         this.userService = userService;

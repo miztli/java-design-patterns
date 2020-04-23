@@ -5,17 +5,17 @@ import java.util.List;
 public class App
 {
     //
-    final static boolean ACTIVE = true;
+    public final static boolean ACTIVE = true;
 
-    final static boolean INACTIVE = false;
+    public final static boolean INACTIVE = false;
 
-    final static boolean IN_OFFICE = true;
+    public final static boolean IN_OFFICE = true;
 
-    final static boolean OUT_OF_OFFICE = false;
+    public final static boolean OUT_OF_OFFICE = false;
 
-    final static boolean ASSIGNED_TO_PROJECT = true;
+    public final static boolean ASSIGNED_TO_PROJECT = true;
 
-    final static boolean WITHOUT_PROJECT = false;
+    public final static boolean WITHOUT_PROJECT = false;
 
     public static void main(String[] args)
     {

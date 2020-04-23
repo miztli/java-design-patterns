@@ -11,8 +11,12 @@ public class UserFacadeClientA extends DefaultUserFacade
 
     private ProjectsAssignmentService projectsAssignmentService;
 
+    public UserFacadeClientA() {
+        super();
+    }
+
     public UserFacadeClientA(final UserService userService, final HumanResourcesService humanResourcesService,
-        final AttendanceService attendanceService, final ProjectsAssignmentService projectsAssignmentService)
+                             final AttendanceService attendanceService, final ProjectsAssignmentService projectsAssignmentService)
     {
         super(userService, humanResourcesService);
         this.attendanceService = attendanceService;

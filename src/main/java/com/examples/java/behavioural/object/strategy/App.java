@@ -13,17 +13,17 @@ public class App {
 
   public static void main(String[] args) {
     final ProductsStore store = new ProductsStore();
-      store.setProducts(initializeDefaultProductList());
+    store.setProducts(initializeDefaultProductList());
 
     System.out.println("In Mexico, some wealthy guy goes into apple to buy the new iPhone");
     // At runtime we could decide which strategy to use based on some condition, in this example: the country.
     store.setTaxesCalculationStrategy(new MexicoTaxesCalculationStrategy(MEXICO_TAXES));
-    Product iPhoneInMexico = store.buyProductByName(IPHONE_X);
+    final Product iPhoneInMexico = store.buyProductByName(IPHONE_X);
     printDetails(iPhoneInMexico);
 
     System.out.println("In London, some wealthy guy goes into apple to buy the new iPhone");
     store.setTaxesCalculationStrategy(new LondonTaxesCalculationStrategy(LONDON_TAXES, BREXIT_BONUS));
-    Product iPhoneInLondon = store.buyProductByName(IPHONE_X);
+    final Product iPhoneInLondon = store.buyProductByName(IPHONE_X);
     printDetails(iPhoneInLondon);
   }
 

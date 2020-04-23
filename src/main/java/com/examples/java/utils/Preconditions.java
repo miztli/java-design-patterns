@@ -23,7 +23,7 @@ public class Preconditions
     }
 
     public static void isNotEmpty(List list, String param) {
-        if(list != null && list.isEmpty())
+        if(list == null || list.isEmpty())
             throw new IllegalArgumentException(
                     String.format("Provided value for %s must contain at least 1 element", param));
 
